@@ -17,8 +17,7 @@ function App() {
         <Header />
         <MainContent />
         <Footer />
-        <UserProfile name="John Doe" age={30} bio="A software developer from NY." />
-        <a href="https://vite.dev" target="_blank">
+<UserProfile name="Alice" age="25" bio="Loves hiking and photography" />        <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
