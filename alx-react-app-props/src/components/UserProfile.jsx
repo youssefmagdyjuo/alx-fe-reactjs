@@ -1,11 +1,7 @@
-import React from "react";
+import UserInfo from "../components/UserInfo";
 
-export default function UserProfile(props) {
-    return (
-        <div>
-        <h2>{props.name}</h2>
-        <p>Age: {props.age}</p>
-        <p>Bio: {props.bio}</p>
-        </div>
-    );
+function ProfilePage() {
+  return <UserInfo/>;
 }
+
+export default ProfilePage;
