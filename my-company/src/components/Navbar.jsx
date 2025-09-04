@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const navStyle = {
     padding: '1rem 2rem',
-    background: '#3652b0ff',
+    backgroundColor: '#3652b0ff',
     boxShadow: '0 4px 16px rgba(54,82,176,0.12)',
     position: 'sticky',
     top: 0,
