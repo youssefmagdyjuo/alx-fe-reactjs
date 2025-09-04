@@ -1,5 +1,5 @@
 import ProfilePage from "./components/ProfilePage";
-import UserContex from "./userContext";
+import UserContex from "./components/UserContext";
 function App() {
   const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
 
