@@ -1,11 +1,12 @@
 import './App.css'
+import AddRecipeForm from './components/AddRecipeForm'
+import RecipeList from './components/RecipeList'
 function App() {
   return (
-    <>
-      <h1>
-        Recipe App 
-      </h1>
-    </>
+    <div >
+      <RecipeList/>
+      <AddRecipeForm/>
+    </div>
   )
 }
 
