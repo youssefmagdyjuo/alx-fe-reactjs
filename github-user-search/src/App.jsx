@@ -7,7 +7,7 @@ function App() {
         GitHub User Search
       </h1>
       <Search/>
-      <UserCard/>
+      {/* <UserCard/> */}
     </div>
   );
 }
