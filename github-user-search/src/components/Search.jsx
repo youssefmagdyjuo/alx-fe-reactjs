@@ -1,9 +1,9 @@
 
 import React from 'react'
 import { useUserStore } from '../store/usersStore';
-import { getUser } from '../services/githubService';
+import { fetchUserData } from '../services/githubService';
 import UserCard from './UserCard';
-export default function SearchBar() {
+export default function Search() {
   const [username, setUsername] = React.useState("");
   const {setUser} = useUserStore();
   
@@ -11,7 +11,7 @@ export default function SearchBar() {
     event.preventDefault();
     const userNameTrimmed = username.trim();
     if(userNameTrimmed){
-      const data=await getUser(userNameTrimmed);
+      const data=await fetchUserData(userNameTrimmed);
         setUser({
         img: data.avatar_url,
         name: data.name || data.login,

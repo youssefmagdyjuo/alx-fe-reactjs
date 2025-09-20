@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SearchBar from "./components/SearchBar";
+import Search from "./components/Search";
 import UserCard from "./components/UserCard";
 import { getUser } from "./services/githubService";
 
@@ -16,7 +16,7 @@ function App() {
       <h1 className="text-3xl font-bold text-center mb-6">
         GitHub User Search
       </h1>
-      <SearchBar onSearch={handleSearch} />
+      <Search onSearch={handleSearch} />
       {user && (
         <div className="mt-6 flex justify-center">
           <UserCard user={user} />

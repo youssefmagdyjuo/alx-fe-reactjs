@@ -3,7 +3,7 @@ import axios from "axios";
 const BASE_URL = "https://api.github.com/users";
 const API_KEY = import.meta.env.VITE_APP_GITHUB_API_KEY;
 
-export const getUser = async (username) => {
+export const fetchUserData = async (username) => {
   try {
     const headers = {};
 
