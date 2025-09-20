@@ -1,33 +1,41 @@
-import axios from "axios";
+// src/services/githubService.js
 
-const BASE_URL = "https://api.github.com/users";
-const API_KEY = import.meta.env.VITE_APP_GITHUB_API_KEY;
+const BASE_URL = "https://api.github.com";
 
-export const fetchUserData = async (username) => {
+export async function fetchUserData(username, location = "", minRepos = "") {
   try {
-    const headers = {};
+    // نبني query string
+    let query = `${username} in:login`;
+    if (location) query += ` location:${location}`;
+    if (minRepos) query += ` repos:>=${minRepos}`;
 
-    // لو فيه API_KEY نزود Authorization
-    if (API_KEY) {
-      headers["Authorization"] = `Bearer ${API_KEY}`;
+    const searchUrl = `${BASE_URL}/search/users?q=${encodeURIComponent(query)}`;
+
+    const searchResponse = await fetch(searchUrl);
+    if (!searchResponse.ok) {
+      throw new Error("Search request failed");
     }
 
-    const response = await axios.get(`${BASE_URL}/${username}`, { headers });
-    return response.data;
+    const searchData = await searchResponse.json();
+
+    if (searchData.total_count === 0) {
+      return null; // مفيش مستخدمين بالمعايير دي
+    }
+
+    // نجيب أول مستخدم من النتائج (ممكن تتوسع لاحقاً تعرض list كاملة)
+    const user = searchData.items[0];
+
+    // نجيب تفاصيل أعمق عن المستخدم
+    const userResponse = await fetch(`${BASE_URL}/users/${user.login}`);
+    if (!userResponse.ok) {
+      throw new Error("User details request failed");
+    }
+
+    const userData = await userResponse.json();
+    return userData;
 
   } catch (error) {
-    // لو الخطأ بسبب Bad credentials → جرّب من غير Token
-    if (error.response?.status === 401) {
-      try {
-        const response = await axios.get(`${BASE_URL}/${username}`);
-        return response.data;
-      } catch (err) {
-        console.error("Error fetching user without token:", err.response?.data || err.message);
-        return null;
-      }
-    }
-
-    console.error("Error fetching user:", error.response?.data || error.message);
-    return null;
+    console.error("Error fetching user data:", error);
+    throw error;
   }
-};
+}
