@@ -8,35 +8,23 @@ export default function Search() {
   const [minRepos, setMinRepos] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
-  const { setUser } = useUserStore();
+  const { setUsers } = useUserStore();   // ✅ تعديل هنا
   
   async function handleClick(event) {
-    event.preventDefault();
-    const userNameTrimmed = username.trim();
-    
-    if (userNameTrimmed) {
+    event.preventDefault();    
+    if (username.trim()) {
       setLoading(true);
       setError(null);
       
       try {
-        const data = await fetchUserData(userNameTrimmed);
-        if (data) {
-          // فلترة إضافية حسب location و minRepos
-          if (
-            (location && data.location?.toLowerCase() !== location.toLowerCase()) ||
-            (minRepos && data.public_repos < parseInt(minRepos))
-          ) {
-            setError("Looks like we cant find the user with those filters");
-          } else {
-            setUser({
-              img: data.avatar_url,
-              name: data.name || data.login,
-              username: data.login,
-              profileUrl: data.html_url,
-              location: data.location,
-              repos: data.public_repos
-            });
-          }
+        const data = await fetchUserData(
+          username.trim(),
+          location.trim(),
+          minRepos.trim()
+        );
+        
+        if (data.length > 0) {
+          setUsers(data);   // ✅ نحفظ المصفوفة كلها
         } else {
           setError("Looks like we cant find the user");
         }
