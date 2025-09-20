@@ -6,7 +6,7 @@ export async function fetchUserData(username, location = "", minRepos = "") {
     if (location) query += ` location:${location}`;
     if (minRepos) query += ` repos:>=${minRepos}`;
 
-    const searchUrl = `${BASE_URL}/search/users?q=${encodeURIComponent(query)}`;
+    const searchUrl = `https://api.github.com/search/users?q=${encodeURIComponent(query)}`;
     const response = await fetch(searchUrl);
     if (!response.ok) throw new Error("Search request failed");
 
