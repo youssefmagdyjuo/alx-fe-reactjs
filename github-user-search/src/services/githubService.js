@@ -18,7 +18,7 @@ export async function fetchUserData(username, location = "", minRepos = "") {
       img: user.avatar_url,
       name: user.login,       // مفيش name هنا، لو محتاجه لازم request تاني
       username: user.login,
-      profileUrl: user.html_url,
+      html_url: user.html_url,
     }));
 
   } catch (error) {

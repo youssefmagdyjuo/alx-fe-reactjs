@@ -114,7 +114,7 @@ export default function Search() {
                 @{user.username}
               </p>
               <a
-                href={user.profileUrl}
+                href={user.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
