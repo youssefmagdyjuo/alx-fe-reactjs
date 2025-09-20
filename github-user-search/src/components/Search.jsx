@@ -77,24 +77,11 @@ export default function Search() {
 
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-          <div style={{ display: "grid",gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "20px" }}>
+          <div className='user-cards-container'>
       {users.map((user) => (
         <section
           key={user.username}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "12px",
-            minHeight: "220px",
-            marginTop: "20px",
-            padding: "20px",
-            borderRadius: "12px",
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.22)",
-            backgroundColor: "#ffffffff",
-            maxWidth: "300px",
-          }}
+          className='user-card'
         >
           {user.name && (
             <>
