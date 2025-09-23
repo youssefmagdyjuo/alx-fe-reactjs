@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const BASE_URL = "https://api.github.com";
 
 export async function fetchUserData(username, location = "", minRepos = "") {
@@ -6,17 +8,14 @@ export async function fetchUserData(username, location = "", minRepos = "") {
     if (location) query += ` location:${location}`;
     if (minRepos) query += ` repos:>=${minRepos}`;
 
-    const searchUrl = `https://api.github.com/search/users?q=${encodeURIComponent(query)}`;
-    const response = await fetch(searchUrl);
-    if (!response.ok) throw new Error("Search request failed");
-
-    const data = await response.json();
+    const searchUrl = `${BASE_URL}/search/users?q=${encodeURIComponent(query)}`;
+    const response = await axios.get(searchUrl);
+    const data = response.data;
     if (data.total_count === 0) return [];
 
-    // هنا باخد الداتا زي ما هي من السيرش من غير ما أعمل requests تانية
     return data.items.map(user => ({
       img: user.avatar_url,
-      name: user.login,       // مفيش name هنا، لو محتاجه لازم request تاني
+      name: user.login, // No name field here, need another request if required
       username: user.login,
       html_url: user.html_url,
     }));
