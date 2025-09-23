@@ -80,14 +80,14 @@ export default function Search() {
           <div className='user-cards-container'>
       {users.map((user) => (
         <section
-          key={user.username}
+          key={user.login}
           className='user-card'
         >
           {user.name && (
             <>
               <img
-                src={user.img}
-                alt={user.username}
+                src={user.avatar_url}
+                alt={user.login}
                 width="120"
                 style={{
                   borderRadius: "50%",
@@ -98,7 +98,7 @@ export default function Search() {
                 {user.name}
               </h2>
               <p style={{ margin: "4px 0", color: "#555" }}>
-                @{user.username}
+                @{user.login}
               </p>
               <a
                 href={user.html_url}

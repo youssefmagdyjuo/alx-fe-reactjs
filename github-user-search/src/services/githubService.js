@@ -14,9 +14,9 @@ export async function fetchUserData(username, location = "", minRepos = "") {
     if (data.total_count === 0) return [];
 
     return data.items.map(user => ({
-      img: user.avatar_url,
+      avatar_url: user.avatar_url,
       name: user.login, // No name field here, need another request if required
-      username: user.login,
+      login: user.login,
       html_url: user.html_url,
     }));
 
