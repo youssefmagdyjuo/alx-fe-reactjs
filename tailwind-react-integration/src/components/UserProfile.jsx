@@ -10,7 +10,7 @@ function UserProfile() {
         className="md:text-xl sm:text-lg text-blue-800 my-4"
         >John Doe</h1>
         <p
-        className=" md:text-xl sm:text-lg text-gray-600 text-base"
+        className="sm:text-sm text-gray-600 md:text-base"
         >Developer at Example Co. Loves to write code and explore new technologies.</p>
         </div>
     );
