@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 2,
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 3,
+    "title": "Sushi Platter",
+    "summary": "An assortment of fresh sushi rolls with salmon, tuna, and avocado.",
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 4,
+    "title": "Margherita Pizza",
+    "summary": "Classic Neapolitan pizza topped with tomatoes, mozzarella, and fresh basil.",
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 5,
+    "title": "Beef Burger",
+    "summary": "Juicy grilled beef patty with cheese, lettuce, tomato, and special sauce in a soft bun.",
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 6,
+    "title": "Caesar Salad",
+    "summary": "Crisp romaine lettuce with creamy Caesar dressing, croutons, and parmesan cheese.",
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 7,
+    "title": "Pad Thai",
+    "summary": "A popular Thai stir-fried rice noodle dish with shrimp, tofu, peanuts, and lime.",
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 8,
+    "title": "Chocolate Lava Cake",
+    "summary": "A rich chocolate cake with a gooey molten chocolate center, served warm.",
+    "image": "https://via.placeholder.com/150"
+  }
+]
