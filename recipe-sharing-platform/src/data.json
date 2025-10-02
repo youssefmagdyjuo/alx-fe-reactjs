@@ -3,48 +3,108 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": ["Spaghetti", "Eggs", "Parmesan cheese", "Bacon", "Black pepper", "Salt"],
+    "instructions": [
+      "Cook the spaghetti until al dente.",
+      "Fry the bacon until crispy.",
+      "Whisk eggs with parmesan cheese.",
+      "Combine spaghetti with bacon, remove from heat.",
+      "Quickly stir in the egg mixture and season with pepper."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": ["Chicken", "Yogurt", "Tomato puree", "Cream", "Onion", "Garlic", "Garam masala"],
+    "instructions": [
+      "Marinate chicken in yogurt and spices.",
+      "Grill or pan-fry chicken until cooked.",
+      "Prepare sauce with onion, garlic, tomato puree, and cream.",
+      "Simmer chicken in the sauce until flavors blend."
+    ]
   },
   {
     "id": 3,
     "title": "Sushi Platter",
     "summary": "An assortment of fresh sushi rolls with salmon, tuna, and avocado.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": ["Sushi rice", "Nori sheets", "Salmon", "Tuna", "Avocado", "Soy sauce"],
+    "instructions": [
+      "Prepare sushi rice with vinegar.",
+      "Lay rice on nori sheet.",
+      "Add fish and avocado slices.",
+      "Roll tightly and slice into pieces.",
+      "Serve with soy sauce."
+    ]
   },
   {
     "id": 4,
     "title": "Margherita Pizza",
     "summary": "Classic Neapolitan pizza topped with tomatoes, mozzarella, and fresh basil.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": ["Pizza dough", "Tomato sauce", "Mozzarella cheese", "Fresh basil", "Olive oil"],
+    "instructions": [
+      "Roll out the pizza dough.",
+      "Spread tomato sauce evenly.",
+      "Add mozzarella slices and basil leaves.",
+      "Drizzle with olive oil.",
+      "Bake until crust is golden and cheese is melted."
+    ]
   },
   {
     "id": 5,
     "title": "Beef Burger",
     "summary": "Juicy grilled beef patty with cheese, lettuce, tomato, and special sauce in a soft bun.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": ["Beef patty", "Burger buns", "Cheese", "Lettuce", "Tomato", "Onion", "Burger sauce"],
+    "instructions": [
+      "Grill beef patties until cooked to preference.",
+      "Toast burger buns lightly.",
+      "Assemble burger with patty, cheese, lettuce, tomato, onion, and sauce."
+    ]
   },
   {
     "id": 6,
     "title": "Caesar Salad",
     "summary": "Crisp romaine lettuce with creamy Caesar dressing, croutons, and parmesan cheese.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": ["Romaine lettuce", "Caesar dressing", "Croutons", "Parmesan cheese", "Anchovies (optional)"],
+    "instructions": [
+      "Wash and chop romaine lettuce.",
+      "Add croutons and parmesan cheese.",
+      "Drizzle Caesar dressing and toss well.",
+      "Top with anchovies if desired."
+    ]
   },
   {
     "id": 7,
     "title": "Pad Thai",
     "summary": "A popular Thai stir-fried rice noodle dish with shrimp, tofu, peanuts, and lime.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": ["Rice noodles", "Shrimp", "Tofu", "Eggs", "Bean sprouts", "Peanuts", "Lime", "Pad Thai sauce"],
+    "instructions": [
+      "Soak rice noodles until soft.",
+      "Stir-fry shrimp and tofu.",
+      "Add noodles, sauce, and beaten eggs.",
+      "Mix in bean sprouts and peanuts.",
+      "Serve with lime wedges."
+    ]
   },
   {
     "id": 8,
     "title": "Chocolate Lava Cake",
     "summary": "A rich chocolate cake with a gooey molten chocolate center, served warm.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": ["Dark chocolate", "Butter", "Sugar", "Eggs", "Flour", "Vanilla extract"],
+    "instructions": [
+      "Melt chocolate and butter together.",
+      "Whisk in sugar and eggs.",
+      "Fold in flour and vanilla.",
+      "Pour batter into ramekins.",
+      "Bake until edges set but center is gooey."
+    ]
   }
 ]
