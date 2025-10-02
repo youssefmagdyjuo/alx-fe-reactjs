@@ -10,6 +10,10 @@ export default function HomePage() {
     }, []);
 
     return (
+        < div className="text-center">
+            <Link to={'/form'}>
+            <button className="my-4 w-100 cursor-pointer bg-blue-500 text-white px-4 py-2 rounded ">Add Recipe</button>
+            </Link>
         <div className="max-w-6xl mx-auto p-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {recipes.map((r, index) => (
                 <div
@@ -30,6 +34,7 @@ export default function HomePage() {
                     </Link>
                 </div>
             ))}
+        </div>
         </div>
     );
 }
