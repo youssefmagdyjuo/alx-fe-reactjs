@@ -16,13 +16,13 @@ export default function RegistrationForm() {
             newErrors.username = "Username should be at least 5 characters";
         }
 
-        if (!email.trim()) {
+        if (!email) {
             newErrors.email = "Email is required";
         } else if (!/\S+@\S+\.\S+/.test(email)) {
             newErrors.email = "Enter a valid email address";
         }
 
-        if (!password.trim()) {
+        if (!password) {
             newErrors.password = "Password is required";
         } else if (password.length < 6) {
             newErrors.password = "Password should be at least 6 characters";
