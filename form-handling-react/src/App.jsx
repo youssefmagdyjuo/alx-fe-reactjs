@@ -1,7 +1,7 @@
 import { BrowserRouter as Router ,Routes,Route } from 'react-router-dom'
 import './App.css'
 import RegistrationForm from './components/RegistrationForm'
-import FormikForm from './components/FormikForm'
+import formikForm from './components/formikForm'
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<RegistrationForm/>}/>
-          <Route path='/formik' element={<FormikForm/>}/>
+          <Route path='/formik' element={<formikForm/>}/>
         </Routes>
       </Router>
     </>

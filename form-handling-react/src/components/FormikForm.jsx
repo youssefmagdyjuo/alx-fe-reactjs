@@ -1,7 +1,7 @@
 import React from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
-export default function FormikForm() {
+export default function formikForm() {
     return (
         <div>
             <Formik
