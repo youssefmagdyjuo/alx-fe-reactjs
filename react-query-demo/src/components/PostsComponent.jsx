@@ -3,8 +3,8 @@ import React from 'react';
 
 export default function PostsComponent() {
     // استخدام useQuery مع destructuring لإضافة refetch و status
-    const { error, data, isLoading, isFetching, refetch } = useQuery({
-        queryKey: ['posts'],
+    const { error, data,isError, isLoading, isFetching, refetch } = useQuery({
+        queryKey: ['fetchPosts'],
         queryFn: () =>
             fetch('https://jsonplaceholder.typicode.com/posts').then((res) =>
                 res.json()
@@ -13,7 +13,7 @@ export default function PostsComponent() {
         cacheTime: 1000 * 60 * 5, // البيانات تفضل محفوظة في الكاش لمدة 5 دقايق
     });
 
-    if (error) return <div className="text-center text-red-600">❌ Error loading posts</div>;
+    if (isError) return <div className="text-center text-red-600">❌ Error loading posts</div>;
     if (isLoading) return <div className="text-center text-gray-500">⏳ Loading posts...</div>;
 
     return (
