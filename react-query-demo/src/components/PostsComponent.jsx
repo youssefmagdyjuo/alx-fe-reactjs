@@ -11,6 +11,7 @@ export default function PostsComponent() {
             ),
         staleTime: 5000, // البيانات تظل "حديثة" لمدة 5 ثواني قبل ما يعيد الجلب
     refetchOnWindowFocus: true, // يعيد الجلب تلقائيًا عند الرجوع للنافذة
+    cacheTime: 1000 * 60 * 5,
     keepPreviousData: true, // يحافظ على البيانات القديمة أثناء تحميل الجديدة    
     });
 
