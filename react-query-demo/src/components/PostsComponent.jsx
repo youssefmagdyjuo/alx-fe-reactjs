@@ -10,7 +10,8 @@ export default function PostsComponent() {
                 res.json()
             ),
         staleTime: 5000, // البيانات تظل "حديثة" لمدة 5 ثواني قبل ما يعيد الجلب
-        cacheTime: 1000 * 60 * 5, // البيانات تفضل محفوظة في الكاش لمدة 5 دقايق
+    refetchOnWindowFocus: true, // يعيد الجلب تلقائيًا عند الرجوع للنافذة
+    keepPreviousData: true, // يحافظ على البيانات القديمة أثناء تحميل الجديدة    
     });
 
     if (isError) return <div className="text-center text-red-600">❌ Error loading posts</div>;
