@@ -4,6 +4,7 @@ import Profile from './components/Profile'
 import Home from './components/Home'
 import Login from './components/Login'
 import PrivateRoute from './components/PrivateRoute'
+import BlogPost from './components/BlogPost'   // 👈 استيراد المكون الجديد
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
             </PrivateRoute>
           }
         />
+
+        {/* ✅ Route جديد للمقالات */}
+        <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
     </Router>
   )
