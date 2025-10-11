@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Profile from './components/Profile'
 import Home from './components/Home'
 import Login from './components/Login'
-import PrivateRoute from './components/PrivateRoute'
+import ProtectedRoute from './components/ProtectedRoute'
 import BlogPost from './components/BlogPost'   // 👈 استيراد المكون الجديد
 
 function App() {
@@ -17,9 +17,9 @@ function App() {
         <Route
           path='/Profile/*'
           element={
-            <PrivateRoute>
+            <ProtectedRoute>
               <Profile />
-            </PrivateRoute>
+            </ProtectedRoute>
           }
         />
 
