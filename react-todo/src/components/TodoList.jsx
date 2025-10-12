@@ -1,67 +1,53 @@
-import React, { useState } from 'react'
-import AddTodoForm from './AddTodoForm'
+import React, { useState } from "react";
+import AddTodoForm from "./AddTodoForm";
 
 export default function TodoList() {
-    const [tasks,setTasks] = useState(
-        [
-        {
-            id:1,
-            description:'Formik library',
-            completed:false
-        },
-        {
-            id:2,
-            description:'React Query library',
-            completed:false
-        },
-        {
-            id:3,
-            description:'SWR library',
-            completed:false
-        }
-    ]
-    )
-    function handleToggle(id){
-        const updatedTasks=tasks.map(task=>(
-            task.id==id?{...task,completed:!task.completed}:task
-        )
-        )
-        setTasks(updatedTasks)
-    }
-    function handleDelete(id){
-        const updatedTasks = tasks.filter(task=>(
-            task.id!=id
-        ))
-        setTasks(updatedTasks)
-    }
-    return (
-        <>
-            <AddTodoForm tasks={tasks} setTasks={setTasks}/>
-        <div className="task-container">
-            <ul className="task-list">
-        {
-            tasks.length === 0?(
-                <div style={{color:'#666',textAlign:'center'}}>no tasks</div>
-            ):(
-                tasks.map((task)=>(
-                <li 
-                className={`task-item ${task.completed ? "completed" : ""}`}
-                key={task.id}>
-                    <input 
-                    onChange={()=>{handleToggle(task.id)}}
-                    className="task-checkbox" 
-                    type='checkbox' 
-                    checked={task.completed} />
-                    <p className="task-desc">{task.description}</p>
-                    <button 
-                    onClick={()=>{handleDelete(task.id)}}
-                    className="delete-btn">Delete</button>
-                </li>
-            ))
-            )
-        }
-        </ul>
-        </div>
-        </>
-    )
+  const [todos, setTodos] = useState([
+    { id: 1, description: "Formik library", completed: false },
+    { id: 2, description: "React Query library", completed: false },
+    { id: 3, description: "SWR library", completed: false },
+  ]);
+
+  function addTodo(description) {
+    const newTodo = {
+      id: todos.length + 1,
+      description,
+      completed: false,
+    };
+    setTodos([...todos, newTodo]);
+  }
+
+  function toggleTodo(id) {
+    const updated = todos.map((todo) =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    );
+    setTodos(updated);
+  }
+
+  function deleteTodo(id) {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  }
+
+  return (
+    <div>
+      <h2>Todo List</h2>
+      <AddTodoForm addTodo={addTodo} />
+      <ul>
+        {todos.map((todo) => (
+          <li key={todo.id} data-testid="todo-item">
+            <span
+              onClick={() => toggleTodo(todo.id)}
+              style={{
+                textDecoration: todo.completed ? "line-through" : "none",
+                cursor: "pointer",
+              }}
+            >
+              {todo.description}
+            </span>
+            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
