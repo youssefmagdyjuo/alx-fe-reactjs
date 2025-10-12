@@ -21,7 +21,7 @@ export default function TodoList() {
         }
     ]
     )
-    function handleChicked(id){
+    function handleToggle(id){
         const updatedTasks=tasks.map(task=>(
             task.id==id?{...task,completed:!task.completed}:task
         )
@@ -40,7 +40,7 @@ export default function TodoList() {
         <div className="task-container">
             <ul className="task-list">
         {
-            tasks==''?(
+            tasks.length === 0?(
                 <div style={{color:'#666',textAlign:'center'}}>no tasks</div>
             ):(
                 tasks.map((task)=>(
@@ -48,7 +48,7 @@ export default function TodoList() {
                 className={`task-item ${task.completed ? "completed" : ""}`}
                 key={task.id}>
                     <input 
-                    onChange={()=>{handleChicked(task.id)}}
+                    onChange={()=>{handleToggle(task.id)}}
                     className="task-checkbox" 
                     type='checkbox' 
                     checked={task.completed} />
