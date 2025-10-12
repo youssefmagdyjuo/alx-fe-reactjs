@@ -10,22 +10,21 @@ export default function TodoList() {
 
   function addTodo(description) {
     const newTodo = {
-      id: todos.length + 1,
+      id: todos.length ? Math.max(...todos.map(t => t.id)) + 1 : 1,
       description,
       completed: false,
     };
-    setTodos([...todos, newTodo]);
+    setTodos(prev => [...prev, newTodo]);
   }
 
   function toggleTodo(id) {
-    const updated = todos.map((todo) =>
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    setTodos(prev =>
+      prev.map(t => (t.id === id ? { ...t, completed: !t.completed } : t))
     );
-    setTodos(updated);
   }
 
   function deleteTodo(id) {
-    setTodos(todos.filter((todo) => todo.id !== id));
+    setTodos(prev => prev.filter(t => t.id !== id));
   }
 
   return (
@@ -33,7 +32,7 @@ export default function TodoList() {
       <h2>Todo List</h2>
       <AddTodoForm addTodo={addTodo} />
       <ul>
-        {todos.map((todo) => (
+        {todos.map(todo => (
           <li key={todo.id} data-testid="todo-item">
             <span
               onClick={() => toggleTodo(todo.id)}

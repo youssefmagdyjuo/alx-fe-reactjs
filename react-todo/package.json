@@ -10,13 +10,15 @@
     "preview": "vite preview",
     "test": "jest"
   },
-"jest": {
-  "testEnvironment": "jsdom",
-  "transform": {
-    "^.+\\.[t|j]sx?$": "babel-jest"
+  "jest": {
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ]
   },
-  "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"]
-},
   "dependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
