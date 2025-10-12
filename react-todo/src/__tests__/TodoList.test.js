@@ -13,26 +13,26 @@ describe("TodoList Component", () => {
 
   test("adds a new todo", () => {
     render(<TodoList />);
-    const input = screen.getByPlaceholderText("Add a new task...");
-    const addButton = screen.getByText("Add");
+    const input = screen.getByPlaceholderText("Add a new todo...");
+    const button = screen.getByText("Add");
 
-    fireEvent.change(input, { target: { value: "New Task" } });
-    fireEvent.click(addButton);
+    fireEvent.change(input, { target: { value: "Learn Testing" } });
+    fireEvent.click(button);
 
-    expect(screen.getByText("New Task")).toBeInTheDocument();
+    expect(screen.getByText("Learn Testing")).toBeInTheDocument();
   });
 
   test("toggles todo completion", () => {
     render(<TodoList />);
-    const checkbox = screen.getAllByRole("checkbox")[0];
-    fireEvent.click(checkbox);
-    expect(checkbox).toBeChecked();
+    const todoItem = screen.getByText("Formik library");
+    fireEvent.click(todoItem);
+    expect(todoItem).toHaveStyle("text-decoration: line-through");
   });
 
   test("deletes a todo", () => {
     render(<TodoList />);
-    const deleteButtons = screen.getAllByText("Delete");
-    fireEvent.click(deleteButtons[0]);
+    const deleteButton = screen.getAllByText("Delete")[0];
+    fireEvent.click(deleteButton);
     expect(screen.queryByText("Formik library")).not.toBeInTheDocument();
   });
 });
