@@ -1,4 +1,3 @@
-// recipeStore.js
 import { create } from "zustand";
 
 export const useRecipeStore = create((set) => ({
@@ -8,6 +7,26 @@ export const useRecipeStore = create((set) => ({
     { id: 2, title: "Pizza", description: "Cheesy pizza with toppings." },
     { id: 3, title: "Salad", description: "Healthy green salad." },
   ],
+
+  // ➕ إضافة وصفة جديدة
+  addRecipe: (newRecipe) =>
+    set((state) => ({
+      recipes: [...state.recipes, newRecipe],
+    })),
+
+  // ✏️ تعديل وصفة موجودة
+  updateRecipe: (updatedRecipe) =>
+    set((state) => ({
+      recipes: state.recipes.map((recipe) =>
+        recipe.id === updatedRecipe.id ? { ...recipe, ...updatedRecipe } : recipe
+      ),
+    })),
+
+  // ❌ حذف وصفة
+  deleteRecipe: (id) =>
+    set((state) => ({
+      recipes: state.recipes.filter((recipe) => recipe.id !== id),
+    })),
 
   // 📌 البحث
   searchTerm: "",
@@ -30,7 +49,7 @@ export const useRecipeStore = create((set) => ({
   favorites: [],
   addFavorite: (recipeId) =>
     set((state) => ({
-      favorites: [...new Set([...state.favorites, recipeId])], // نضمن مفيش تكرار
+      favorites: [...new Set([...state.favorites, recipeId])],
     })),
   removeFavorite: (recipeId) =>
     set((state) => ({
@@ -41,9 +60,9 @@ export const useRecipeStore = create((set) => ({
   recommendations: [],
   generateRecommendations: () =>
     set((state) => {
-      // Mock logic: اختار وصفات مش موجودة في favorites عشوائياً
       const recommended = state.recipes.filter(
-        (recipe) => !state.favorites.includes(recipe.id) && Math.random() > 0.5
+        (recipe) =>
+          !state.favorites.includes(recipe.id) && Math.random() > 0.5
       );
       return { recommendations: recommended };
     }),
